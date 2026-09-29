@@ -1,83 +1,26 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-22 11:29:05
- * @LastEditTime: 2021-01-22 14:46:00
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit◊
- * @FilePath: /shaobin/Blog/BSPlayer.md
--->
-## [BSPlayer](https://github.com/WeiKnowi/BSPlayer)
-一个由AVPlayer开发的视频播放器，支持旋转全屏，速度控制，调节播放进度，还可以自己自定义UI。
-<img src="/Preview/portrait.jpeg" height = 812>
-<img src="/Preview/landscape.jpeg" width = 812>
-<!--
-![portrait](/Preview/portrait.jpeg)
-![landscape](/Preview/landscape.jpeg)
--->
-## 使用
-1. 基本使用
-```
-let player = BSVideoPlayer(
-		url: urls.last!,
-		frame: CGRect.init(x: 0, y: UIApplication.shared.statusBarFrame.height, width: view.frame.width, height: (9.0/16.0)*view.frame.width)
-	)
-view.addSubview(player)
-```
-2. 旋转
-```
-是否自动旋转
-override var shouldAutorotate: Bool {
-    if player == nil {
-        return true
-    }
-    return player.shouldAutorotate
-}
-```
-重写controller的tanstion方法
-```
-override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    player.viewWillTransition(to: size, with: coordinator)
-}
-```
-3. 状态栏隐藏控制
-```
-override var prefersStatusBarHidden: Bool {
-    if player == nil {
-        return false
-    }
-    if !player.isPortrait {
-        return true
-    }
-    return true
-}
-```
+# BSPlayer
 
-4. 播放器的一些代理方法
-```
-// 点击返回按钮
-func playerViewClickBack(playerView: BSVideoPlayer) {}
+本仓库是「BSPlayer」的安卓版本获取入口，附使用资料索引。
 
-// 播放器将要旋转
-func playerView(playerView: BSVideoPlayer, shouldRotateTo orientation: UIInterfaceOrientation) {}
+## 安装文件资源（夸克网盘）
 
-// 播放器已经完成旋转
-func playerView(playerView: BSVideoPlayer, didRotateTo orienttation: UIInterfaceOrientation) {}
+> **BSPlayer 安装文件资源（夸克网盘）**：[https://pan.quark.cn/s/4243856eb8f9](https://pan.quark.cn/s/4243856eb8f9)
 
-// 控制视图将要隐藏
-func playerView(playerView: BSVideoPlayer, controllViewWillFade state: Int) {}
+## 官方项目
 
-// 控制视图已经隐藏
-func playerView(playerView: BSVideoPlayer, controllViewDidFade state: Int) {}
-```
-详细使用请查看项目中的代码
+- 上游项目：[shaobinbin0621/BSPlayer](https://github.com/shaobinbin0621/BSPlayer)
 
-## 安装
-### Cocoapods
-1. 在Podfile文件中添加`pod 'BSPlayer'`
-2. 运行 `pod install` 或者 `pod update`
-3. 导入 `import BSPlayer`
+## 更多资料
 
-### 手动
-1. 下载项目
-2. 直接把Class文件夹拉到项目中
+- [下载与安装教程](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)
+- [免费版与专业版区别](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E5%85%8D%E8%B4%B9%E7%89%88%E4%B8%8E%E4%B8%93%E4%B8%9A%E7%89%88%E5%8C%BA%E5%88%AB.md)
+- [字幕设置与自动匹配](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E5%AD%97%E5%B9%95%E8%AE%BE%E7%BD%AE%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%B9%E9%85%8D.md)
+- [局域网与网络播放](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%92%AD%E6%94%BE.md)
+- [播放设置与手势操作](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E6%92%AD%E6%94%BE%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%89%8B%E5%8A%BF%E6%93%8D%E4%BD%9C.md)
+- [支持的视频与音频格式](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E6%94%AF%E6%8C%81%E7%9A%84%E8%A7%86%E9%A2%91%E4%B8%8E%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F.md)
+- [黑屏花屏与卡顿排查](https://github.com/alipymanbu/Android/blob/master/%E5%AE%98%E7%BD%91%E7%89%88APP%E4%B8%8B%E8%BD%BD/BSPlayer/%E9%BB%91%E5%B1%8F%E8%8A%B1%E5%B1%8F%E4%B8%8E%E5%8D%A1%E9%A1%BF%E6%8E%92%E6%9F%A5.md)
+- [全部软件目录](https://github.com/alipymanbu/Android/blob/master/%E5%85%A8%E9%83%A8%E8%BD%AF%E4%BB%B6%E7%9B%AE%E5%BD%95.md)
 
+---
+
+> 本仓库由上游项目 fork 而来，原始说明见[上游仓库](https://github.com/shaobinbin0621/BSPlayer)。
